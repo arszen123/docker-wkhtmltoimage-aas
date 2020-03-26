@@ -42,7 +42,7 @@ def application(request):
         source_file.flush()
 
         # Evaluate argument to run with subprocess
-        args = ['wkhtmltopdf']
+        args = ['wkhtmltoimage']
 
         # Add Global Options
         if options:
@@ -53,14 +53,14 @@ def application(request):
 
         # Add source file name and output file name
         file_name = source_file.name
-        args += [file_name, file_name + ".pdf"]
+        args += [file_name, file_name + ".jpeg"]
 
         # Execute the command using executor
         execute(' '.join(args))
 
         return Response(
-            wrap_file(request.environ, open(file_name + '.pdf')),
-            mimetype='application/pdf',
+            wrap_file(request.environ, open(file_name + '.jpeg')),
+            mimetype='image/jpeg',
         )
 
 

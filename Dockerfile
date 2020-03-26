@@ -1,4 +1,4 @@
-FROM openlabs/docker-wkhtmltopdf:latest
+FROM openlabs/docker-wkhtmltopdf-aas:latest
 MAINTAINER Sharoon Thomas <sharoon.thomas@openlabs.co.in>
 
 # Install dependencies for running web service
